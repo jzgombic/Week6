@@ -40,8 +40,15 @@ pipeline {
           }
 
           stage("Docker login") {
+               agent { dockerfile true }
                steps {
                     sh "docker login --username jzgombic78 --password Hova1978!"
+               }
+          }
+          
+          stage("Docker build") {
+               steps {
+                    sh "docker build -t leszko/calculator:${BUILD_TIMESTAMP} ."
                }
           }
 
