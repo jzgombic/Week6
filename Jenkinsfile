@@ -1,6 +1,6 @@
 pipeline {
      agent {
-        docker { image 'node:16.13.1-alpine' }
+        docker { image 'jenkins/jenkins:2.332.1-jdk11' }
      }
      triggers {
           pollSCM('* * * * *')
