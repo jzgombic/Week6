@@ -36,7 +36,7 @@ pipeline {
 
           stage("Docker build") {
                steps {
-                    sh "docker build -t leszko/calculator:${BUILD_TIMESTAMP} ."
+                    sh "docker build -t src/main/java/com/leszko/calculator/leszko/calculator:${BUILD_TIMESTAMP} ."
                }
           }
 
