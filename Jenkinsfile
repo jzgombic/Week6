@@ -4,6 +4,7 @@ pipeline {
           pollSCM('* * * * *')
      }
      stages {
+          
           stage("Compile") {
                steps {
                     sh '''
@@ -12,33 +13,31 @@ pipeline {
                     '''
                }
           }
+          
           stage("Unit test") {
                steps {
                     sh "./gradlew test"
                }
           }
+          
           stage("Code coverage") {
                steps {
                     sh "./gradlew jacocoTestReport"
                     sh "./gradlew jacocoTestCoverageVerification"
                }
           }
+          
           stage("Static code analysis") {
                steps {
                     sh "./gradlew checkstyleMain"
                }
           }
+          
           stage("Package") {
                steps {
                     sh "./gradlew build"
                }
           }
-
-#          stage("Docker build") {
-#               steps {
-#                    sh "docker build -t leszko/calculator:${BUILD_TIMESTAMP} ."
-#               }
-#          }
 
           stage("Docker login") {
                steps {
