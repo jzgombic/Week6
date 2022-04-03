@@ -41,8 +41,8 @@ pipeline {
 
           stage("Docker login") {
                agent {
-                docker { image 'openjdk:8-jre' }
-            }
+                    docker { image 'maven:3.8.1-adoptopenjdk-11' }
+               }  
                steps {
                     sh "docker login --username jzgombic78 --password Hova1978!"
                }
