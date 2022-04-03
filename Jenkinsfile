@@ -1,7 +1,5 @@
 pipeline {
-     agent {
-        docker { image 'jenkins/jenkins:2.332.1-jdk11' }
-     }
+     agent { dockerfile true }
      triggers {
           pollSCM('* * * * *')
      }
