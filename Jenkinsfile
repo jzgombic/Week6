@@ -10,6 +10,7 @@ pipeline {
                     script {
                          def dockerHome = tool "MyDocker"
                          env.PATH = "${dockerHome}/bin:${env.PATH}"
+                         sh "service docker start"
                     }
                }
           }
@@ -48,12 +49,6 @@ pipeline {
                }
           }
 
-          stage("Start Docker") {
-               steps {
-                    sh "service docker start"
-               }
-          }
-          
           stage("Docker login") {
                steps {
                     sh "docker login --username jzgombic78 --password Hova1978!"
