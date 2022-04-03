@@ -50,7 +50,7 @@ pipeline {
 
           stage("Start Docker") {
                steps {
-                    sh "systemctl start docker"
+                    sh "service docker start"
                }
           }
           
